@@ -1,0 +1,59 @@
+<table border="1"
+       cellpadding="10px"
+       cellspacing="10px"
+       align="center"
+       style="font-size: 30px;text-align: center">
+    <thead style="background-color: gray">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Cost</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let x of records">
+            <td>{{x.p_id}}</td>
+            <td>{{x.p_name}}</td>
+            <td>{{x.p_cost}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<hr style="height: 2px;background-color: gray">
+
+<label>P_ID.</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<input type="number" [(ngModel)]="insert_pid">
+<br><br>
+<label>P_Name.</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<input type="text" [(ngModel)]="insert_pname">
+<br><br>
+<label>P_Cost.</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<input type="number" [(ngModel)]="insert_pcost">
+<br><br>
+<button (click)="insert({'p_id':insert_pid,
+                         'p_name':insert_pname,
+                         'p_cost':insert_pcost})">Insert</button>
+<h1>{{insertStatus | json}}</h1>
+
+<hr style="height: 2px;background-color: gray">
+
+<label>P_ID.</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<input type="number" [(ngModel)]="update_pid">
+<br><br>
+<label>P_Name.</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<input type="text" [(ngModel)]="update_pname">
+<br><br>
+<label>P_Cost.</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<input type="number" [(ngModel)]="update_pcost">
+<br><br>
+<button (click)="update({'p_id':update_pid,
+                         'p_name':update_pname,
+                         'p_cost':update_pcost})">Update</button>
+<h1>{{updateStatus | json}}</h1>
+
+<hr style="height: 2px;background-color: gray">
+<label>P_ID.</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<input type="number" [(ngModel)]="delete_pid">
+<br><br>
+<button (click)="remove({'p_id':delete_pid})">Delete</button>
+<h1>{{deleteStatus |  json}}</h1>
